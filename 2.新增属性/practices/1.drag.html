@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .box1,
+        .box2 {
+            width: 200px;
+            padding: 10px 10px;
+            border: 1px solid #f40;
+        }
+        .box2 {
+            position: absolute;
+            top: 0;
+            left: 400px;
+        }
+        li {
+            width: 100%;
+            height: 30px;
+            background-color: #abcdef;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="box2"></div>
+
+    <script>
+        var oBox1 = document.getElementsByClassName('box1')[0],
+            oBox2 = document.getElementsByClassName('box2')[0],
+            oLi = document.getElementsByTagName('li'),
+            dragDom = null;
+
+        for(var i = 0; i < oLi.length; i ++) {
+            oLi[i].setAttribute('draggable', true);
+            oLi[i].ondragstart = function(e) {
+                dragDom = e.target;
+            }
+        }
+
+        oBox1.ondragover = function(e) {
+            e.preventDefault();
+        }
+        oBox2.ondragover = function(e) {
+            e.preventDefault();
+        }
+
+        oBox1.ondrop = function(e) {
+            this.appendChild(dragDom);
+            dragDom = null;
+        }
+        oBox2.ondrop = function(e) {
+            this.appendChild(dragDom);
+            dragDom = null;
+        }
+    </script>
+</body>
+</html>

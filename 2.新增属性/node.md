@@ -1,33 +1,4 @@
 [toc]
-## 课程大纲
-- 新增属性
-    - placeholder（占位符）
-    - Calender, date, time, email, url, search
-    - ContentEditable
-    - Draggable
-    - Hidden
-    - Content-menu
-    - Data-Val（自定义标签）
-
-- 新增标签
-    - 语义化标签（一群类似Div的东西）
-    - canvas（画板）
-    - sag
-    - Audio（声音播放） 
-    - Video（视频播放）
-
-- Api
-    - 定位（需要地理位置功能，GPS）
-    - 重力感应（陀螺仪）
-    - request-animation-frame（动画优化）
-    - History（控制当前页面的历史记录）
-    - LocalStorage, SessionStorage（存储信息，比如：历史最记录）
-    - WebSocket（通信，例如：聊天室，在线聊天）
-    - FileReader（文件读取，预览）
-    - WebWorker（文件的异步，提升性能，提升交互体验）
-    - Fetch（传说中要替代Ajax的东西，兼容不好）
-
-
 ## 新增属性
 ### placeholder
 - 一般用于输入框的提示信息
@@ -179,7 +150,7 @@
 - 问：为什么触发 ondrop 事件必须在 ondrapover 事件种阻止默认事件？
     > 答：
     事件是由行为触发的，但是一个行为可以触发不止一个事件。所以拖拽中当鼠标抬起时可以触发默认触发被拖拽的元素回到原点事件和 ondrop 事件。事件执行队列中，ondragover 事件在 ondrop 事件之前。所以必须在 ondragover 事件中阻止默认的回到原点事件，ondrop 事件才能被触发
-- [拖拽练习](2.新增属性/practices/1.drag.html)
+- [拖拽练习](./practices/1.drag.html)
 - 补充：拖拽事件对象中 dataTransfer 属性用于改变光标样式。兼容性极差。
     - e.dataTransfer.effectAllowed = 'link / copy / move / copymove / linkmove / all'; 必须在 ondragstart 事件中设置该属性。
     - e.dataTransfer.dropEffect = 'link / copy / move / copymove / linkmove / all'; 必须在 ondrop 事件中设置该属性。
